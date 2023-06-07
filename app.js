@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+// TODO: add admin functionality
 app.use('/admin', adminRoutes);
 app.use(mainRoutes);
 
