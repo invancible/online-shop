@@ -9,6 +9,7 @@ require('dotenv').config();
 
 // Internal
 const mainRoutes = require('./routes/main/mainRoutes');
+const adminRoutes = require('./routes/admin/adminRoutes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+app.use('/admin', adminRoutes);
 app.use(mainRoutes);
 
 // Connection
