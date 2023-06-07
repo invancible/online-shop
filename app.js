@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 // Internal
-// -----------
+const mainRoutes = require('./routes/main/mainRoutes');
 
 const app = express();
 
@@ -21,9 +21,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use((req, res) => {
-    res.render('index');
-});
+app.use(mainRoutes);
 
 // Connection
 mongoose.connect(process.env.DB_URL)
